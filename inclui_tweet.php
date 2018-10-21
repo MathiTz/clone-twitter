@@ -20,8 +20,6 @@ $link = $objDb->conecta_mysql();
 
 $sql = " INSERT INTO tweet(id_usuario, tweet)values(123, '$texto_tweet')";
 
-echo $texto_tweet;
-
 mysqli_query($link, $sql);
 
 

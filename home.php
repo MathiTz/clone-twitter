@@ -39,6 +39,18 @@ if(!isset($_SESSION['usuario']))
 					});
 				}
 			});
+
+			function atualizaTweet(){
+				$.ajax({
+					url:'get_tweet.php',
+					success: function(data){
+						$('#tweets').html(data);
+					}
+				});
+			}
+
+			atualizaTweet();
+
 		});
 
 			</script>
@@ -86,7 +98,7 @@ if(!isset($_SESSION['usuario']))
 						</div>
 						</div>
 					</div>
-				</div>
+				
 	    	<div class="col-md-6">
                 <div class="panel panel-default">
 									<div class="panel-body">
@@ -94,14 +106,18 @@ if(!isset($_SESSION['usuario']))
 										<form id="form_tweet">	
 										<input type="text" id="texto_tweet" name="texto_tweet" class="form-control" placeholder="O que está acontecendo agora?" maxlenght="140" />
 										</form>
-											<span class="input-group-btn">
+										<span class="input-group-btn">
 												<button class="btn btn-default" id="btn_tweet" type="button">Tweet</button>
-											</span>
+											</span>				
 										</div>
 									</div>
+
+								<div id="tweets" class="list-group">
+								</div>
+
 								</div>
 								</div>
-			</div>
+			
 			<div class="col-md-3">
 				<div class="panel panel-default">
 					<div class="panel-body">
@@ -112,9 +128,9 @@ if(!isset($_SESSION['usuario']))
 			</div>
 		</div>
 
-
+		</div>
 	    </div>
-	
+		</div>
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 	
 	</body>
