@@ -33,7 +33,8 @@ if(!isset($_SESSION['usuario']))
 						method: 'post',
 						data: $('#form_tweet').serialize(),
 						success: function(data){
-							alert(data);
+							$('#texto_tweet').val('');
+							alert('Tweet incluido com sucesso!!');
 						}
 					});
 				}
