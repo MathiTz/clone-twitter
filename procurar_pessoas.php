@@ -74,6 +74,7 @@ if(!isset($_SESSION['usuario']))
 	        
 	        <div id="navbar" class="navbar-collapse collapse">
 	          <ul class="nav navbar-nav navbar-right">
+              <li><a href="home.php">Home</a></li>
 	            <li><a href="sair.php">Sair</a></li>
 	          </ul>
 	        </div><!--/.nav-collapse -->
@@ -101,32 +102,31 @@ if(!isset($_SESSION['usuario']))
 				
 	    	<div class="col-md-6">
                 <div class="panel panel-default">
-									<div class="panel-body">
-										<div class="input-group">
-										<form id="form_tweet">	
-										<input type="text" id="texto_tweet" name="texto_tweet" class="form-control" placeholder="O que está acontecendo agora?" maxlenght="140" />
-										</form>
-										<span class="input-group-btn">
-												<button class="btn btn-default" id="btn_tweet" type="button">Tweet</button>
-											</span>				
-										</div>
-									</div>
-
-								<div id="tweets" class="list-group">
-								</div>
-
-								</div>
-								</div>
-			
-			<div class="col-md-3">
-				<div class="panel panel-default">
 					<div class="panel-body">
-						<h4><a href="procurar_pessoas.php">Procurar por pessoas</a></h4>
-					</div>
+						<div class="input-group">
+			<form id="form_tweet">	
+				<input type="text" id="texto_tweet" name="texto_tweet" class="form-control" placeholder="O que está acontecendo agora?" maxlenght="140" />
+			</form>
+			<span class="input-group-btn">
+<button class="btn btn-default" id="btn_tweet" type="button">Tweet</button>
+</span>				
+</div>
+</div>
 
-				</div>
-			</div>
-		</div>
+<div id="tweets" class="list-group">
+</div>
+
+</div>
+</div>
+			
+<div class="col-md-3">
+<div class="panel panel-default">
+<div class="panel-body">
+</div>
+
+</div>
+</div>
+</div>
 
 		</div>
 	    </div>
