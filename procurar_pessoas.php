@@ -25,32 +25,21 @@ if(!isset($_SESSION['usuario']))
 		<script type="text/javascript">
 
 		$(document).ready( function(){
-			$('#btn_tweet').click( function(){
+			$('#btn_procurar_pessoa').click( function(){
 
-				if($('#texto_tweet').val().length > 0){
+				if($('#nome_pessoa').val().length > 0){
 					$.ajax({
-						url: 'inclui_tweet.php',
+						url: 'get_pessoas.php',
 						method: 'post',
-						data: $('#form_tweet').serialize(),
+						data: $('#form_procurar_pessoa').serialize(),
 						success: function(data){
-							$('#texto_tweet').val('');
-							atualizaTweet();
+							$('#pessoas').html(data);
 						}
 					});
 				}
 			});
 
-			function atualizaTweet(){
-				$.ajax({
-					url:'get_tweet.php',
-					success: function(data){
-						$('#tweets').html(data);
-					}
-				});
-			}
-
-			atualizaTweet();
-
+			
 		});
 
 			</script>
@@ -104,16 +93,16 @@ if(!isset($_SESSION['usuario']))
                 <div class="panel panel-default">
 					<div class="panel-body">
 						<div class="input-group">
-			<form id="form_tweet">	
-				<input type="text" id="texto_tweet" name="texto_tweet" class="form-control" placeholder="O que está acontecendo agora?" maxlenght="140" />
+			<form id="form_procurar_pessoa">	
+				<input type="text" id="nome_pessoa" name="nome_pessoa" class="form-control" placeholder="Quem você está procurando?" maxlenght="140" />
 			</form>
 			<span class="input-group-btn">
-<button class="btn btn-default" id="btn_tweet" type="button">Tweet</button>
+<button class="btn btn-default" id="btn_procurar_pessoa" type="button">Procura</button>
 </span>				
 </div>
 </div>
 
-<div id="tweets" class="list-group">
+<div id="pessoas" class="list-group">
 </div>
 
 </div>
