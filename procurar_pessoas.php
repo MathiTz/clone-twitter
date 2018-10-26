@@ -24,16 +24,35 @@ if(!isset($_SESSION['usuario']))
 
 		<script type="text/javascript">
 
-		$(document).ready( function(){
-			$('#btn_procurar_pessoa').click( function(){
+		$(document).ready( function()
+		{
+			$('#btn_procurar_pessoa').click( function()
+			{
 
-				if($('#nome_pessoa').val().length > 0){
-					$.ajax({
+				if($('#nome_pessoa').val().length > 0)
+				{
+					$.ajax
+					({
 						url: 'get_pessoas.php',
 						method: 'post',
 						data: $('#form_procurar_pessoa').serialize(),
-						success: function(data){
+						success: function(data)
+						{
 							$('#pessoas').html(data);
+
+							$('.btn_seguir').click( function(){
+								var id_usuario = $(this).data('id_usuario');
+
+								$.ajax({
+									url:'seguir.php',
+									method: 'post',
+									data: { seguir_id_usuario: id_usuario},
+									success: function(data){
+										alert('Registro efetuado com sucesso');
+									}
+								});
+							});
+
 						}
 					});
 				}
