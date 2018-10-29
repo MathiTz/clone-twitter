@@ -43,6 +43,10 @@ if(!isset($_SESSION['usuario']))
 							$('.btn_seguir').click( function(){
 								var id_usuario = $(this).data('id_usuario');
 
+								$('#btn_seguir_'+id_usuario).hide();
+								$('#btn_deixar_seguir_'+id_usuario).show();
+									
+
 								$.ajax({
 									url:'seguir.php',
 									method: 'post',
@@ -53,15 +57,18 @@ if(!isset($_SESSION['usuario']))
 								});
 
 							});
-									$('.btn_deixar_seguir').click( function(){
-										var id_usuario = $(this).data('id_usuario');
+								$('.btn_deixar_seguir').click( function(){
+									var id_usuario = $(this).data('id_usuario');
+
+									$('#btn_seguir_'+id_usuario).show();
+									$('#btn_deixar_seguir_'+id_usuario).hide();
 	
 									$.ajax({
-										url:'deixar_seguir.php',
-										method: 'post',
-										data: { deixar_seguir_id_usuario: id_usuario},
-										success: function(data){
-											alert('Deixar de seguir efetuado com sucesso');
+									url:'deixar_seguir.php',
+									method: 'post',
+									data: { deixar_seguir_id_usuario: id_usuario},
+									success: function(data){
+										alert('Deixar de seguir efetuado com sucesso');
 										}
 									})
 									});
