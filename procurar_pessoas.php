@@ -51,7 +51,20 @@ if(!isset($_SESSION['usuario']))
 										alert('Registro efetuado com sucesso');
 									}
 								});
+
 							});
+									$('.btn_deixar_seguir').click( function(){
+										var id_usuario = $(this).data('id_usuario');
+	
+									$.ajax({
+										url:'deixar_seguir.php',
+										method: 'post',
+										data: { deixar_seguir_id_usuario: id_usuario},
+										success: function(data){
+											alert('Deixar de seguir efetuado com sucesso');
+										}
+									})
+									});
 
 						}
 					});
